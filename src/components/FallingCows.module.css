@@ -1,0 +1,59 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.cow {
+  position: absolute;
+  top: -60px;
+  display: block;
+  line-height: 1;
+  animation: fall ease-in forwards;
+  transform-origin: center;
+}
+
+@keyframes fall {
+  0% {
+    top: -60px;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  /* accelerate on the way down */
+  60% {
+    opacity: 1;
+    transform: rotate(var(--rotate));
+  }
+  /* first bounce */
+  72% {
+    top: 92vh;
+    transform: rotate(calc(var(--rotate) * -0.4)) scaleY(0.8) scaleX(1.1);
+    animation-timing-function: ease-out;
+  }
+  /* rise */
+  82% {
+    top: 80vh;
+    transform: rotate(calc(var(--rotate) * 0.2)) scaleY(1) scaleX(1);
+    animation-timing-function: ease-in;
+  }
+  /* second bounce, smaller */
+  88% {
+    top: 93vh;
+    transform: scaleY(0.9) scaleX(1.05);
+    animation-timing-function: ease-out;
+  }
+  /* settle */
+  94% {
+    top: 87vh;
+  }
+  100% {
+    top: 94vh;
+    opacity: 0;
+    transform: rotate(0deg) scaleY(1) scaleX(1);
+  }
+}

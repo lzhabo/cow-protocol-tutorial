@@ -1,0 +1,295 @@
+/* ── Layout ────────────────────────────────────────────── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ── Form ──────────────────────────────────────────────── */
+.form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.select,
+.input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.select:focus,
+.input:focus {
+  border-color: var(--accent-hi);
+}
+
+.select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7f96' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.tokenRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 8px;
+}
+
+.arrow {
+  color: var(--muted);
+  font-size: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* ── Button ────────────────────────────────────────────── */
+.btn {
+  background: var(--accent-hi);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+}
+
+.btn:hover:not(:disabled) { opacity: 0.85; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Error ─────────────────────────────────────────────── */
+.error {
+  background: rgba(240, 77, 77, 0.1);
+  border: 1px solid rgba(240, 77, 77, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--red);
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.errorIcon { flex-shrink: 0; font-size: 16px; }
+
+/* ── Quote card ────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--accent-hi);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.quoteId {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: monospace;
+}
+
+/* ── Swap display ──────────────────────────────────────── */
+.swapDisplay {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.swapSide {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.swapSide:last-child { align-items: flex-end; }
+
+.swapLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.swapAmount {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.swapSymbol {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.swapArrow {
+  font-size: 20px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* ── Details ───────────────────────────────────────────── */
+.details {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.rowLabel { color: var(--muted); }
+
+.rowValue {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.rowValue code {
+  font-family: monospace;
+  font-size: 13px;
+  background: var(--bg);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* ── Next steps ────────────────────────────────────────── */
+.nextSteps {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--green-dim);
+}
+
+.nextStepsTitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.stepList {
+  list-style: none;
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stepList li {
+  counter-increment: steps;
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text);
+  align-items: flex-start;
+}
+
+.stepList li::before {
+  content: counter(steps);
+  background: var(--green);
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Explorer link ─────────────────────────────────────── */
+.explorerLink {
+  display: block;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  transition: color 0.15s;
+  text-decoration: none;
+}
+
+.explorerLink:hover {
+  color: var(--text);
+  text-decoration: none;
+}
