@@ -24,6 +24,8 @@ Your signed order
   On-chain settlement (one tx for many orders)
 ```
 
+![How CoW Protocol turns a swap request into best execution](public/cow-protocol-flow.png)
+
 The key insight: by **batching orders together**, solvers can:
 - Match buyers and sellers directly (peer-to-peer, zero AMM fees)
 - Route across multiple liquidity sources simultaneously
